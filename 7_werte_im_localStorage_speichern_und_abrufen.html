@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speichern im LocalStorage des Browsers</title>
+    <script>
+
+        // Variablen permanent speichern
+        let nameToSave;
+
+
+
+        function saveName() {
+            let nameToSave = document.getElementById('inputSave').value;
+            // Speichert und dem Schlüssel variable den Wert der Variablen nameToSave
+            localStorage.setItem('variable', nameToSave)
+
+            document.getElementById('headlineSave').innerHTML = `Hallo ${nameToSave}`;
+
+        }
+
+        function loadName() {
+            // Gibt den Wert wieder aus
+            nameToSave = localStorage.getItem('variable')
+            document.getElementById('headlineSave').innerHTML = `Hallo ${nameToSave}`;
+        }
+
+        // Array speichern
+
+        let namesToSave = [];
+
+        function loadItem() {
+            let saveName = document.getElementById('inputSave').value;
+            namesToSave.push(saveName);
+            setArray('names', namesToSave)
+            document.getElementById('headlineSave').innerHTML = `Hallo ${namesToSave}`;
+
+        }
+
+        function loadArray() {
+            namesToSave = getArray('names')
+            document.getElementById('headlineSave').innerHTML = `Hallo ${namesToSave}`;
+
+        }
+
+        // Hilfsfunktionen Array
+
+        function setArray(key, array) {
+            localStorage.setItem(key, JSON.stringify(array))
+
+        }
+
+        function getArray(key) {
+            return JSON.parse(localStorage.getItem(key));
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Speichern im LocalStorage des Browsers</h1>
+
+    <input id="inputSave" type="text">
+    <button onclick="saveName()">Speichern</button>
+    <h1 id="headlineSave"></h1>
+
+    <button onclick="loadName()">Wert aus Storage</button>
+
+    <button onclick="loadItem()">Hinzufügen</button>
+    <button onclick="loadArray()">Ausgeben</button>
+</body>
+
+</html>

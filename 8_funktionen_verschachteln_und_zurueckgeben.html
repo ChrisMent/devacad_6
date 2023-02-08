@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verschachtelte Funktion</title>
+</head>
+
+<script>
+
+    // Rückgabe von Funktionen (einfache Rückgabe)
+
+    function calc() {
+        let number = +document.getElementById('input').value
+        document.getElementById('result').innerHTML = `Result is ${powerOf2(number)}`;
+
+    }
+
+    // Funktionen verschachteln
+
+    function calc_1() {
+        let number = +document.getElementById('input').value
+        /* alert(getResultText(number, powerOf2(number)))
+         powerOf2(number) von oben genannter Funktion ist der Funktionsparameter der folgenden Funktion getResultText und bekommt dort den Parameter result... */
+
+        alert(getResultText(number, powerOf2(number)))
+
+    }
+
+    function getResultText(number, result) {
+        return `The result of ${number}² is ${result}`
+
+    }
+
+    function powerOf2(x) {
+        return x * x;
+
+    }
+
+</script>
+
+<body>
+    <input Id="input" type="text">
+    <button onclick="calc()">Berechne</button>
+    <button onclick="calc_1()">Berechne 1</button>
+
+    <h1 id="result"></h1>
+</body>
+
+</html>

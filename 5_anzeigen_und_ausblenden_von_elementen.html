@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elemente erzeugen und ein- ausblenden</title>
+    <style>
+        .door {
+            width: 150px;
+            height: 150px;
+            background-color: #04AA6D;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            color: white;
+
+
+        }
+
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .d-none {
+            display: none;
+        }
+    </style>
+    <script>
+
+        function insertDoors() {
+            for (let i = 0; i < 24; i++) {
+                document.getElementById('doors').innerHTML += `<div onclick="hide(${i + 1})" id="${i + 1}" class="door">${i + 1}</div>`;
+
+            }
+        }
+
+        function hide(id) {
+            document.getElementById(id).classList.add('d-none')
+
+        }
+
+        function show(id) {
+            document.getElementById(id).classList.remove('d-none')
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <button onclick="insertDoors()">Türchen Hinzufügen</button>
+    <button onclick="show('1')">1</button>
+    <button onclick="show('2')">2</button>
+    <button onclick="show('3')">3</button>
+    <button onclick="show('4')">4</button>
+    <button onclick="show('5')">5</button>
+    <button onclick="show('6')">6</button>
+    <button onclick="show('7')">7</button>
+    <button onclick="show('8')">8</button>
+    <button onclick="show('9')">9</button>
+    <button onclick="show('10')">10</button>
+    <button onclick="show('11')">11</button>
+    <button onclick="show('12')">12</button>
+    <button onclick="show('13')">13</button>
+    <button onclick="show('14')">14</button>
+    <button onclick="show('15')">15</button>
+    <button onclick="show('16')">16</button>
+    <button onclick="show('17')">17</button>
+    <button onclick="show('18')">18</button>
+    <button onclick="show('19')">19</button>
+    <button onclick="show('20')">20</button>
+    <button onclick="show('21')">21</button>
+    <button onclick="show('22')">22</button>
+    <button onclick="show('23')">23</button>
+    <button onclick="show('24')">24</button>
+    <div id="doors" class="wrapper">
+
+    </div>
+</body>
+
+</html>

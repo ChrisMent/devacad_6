@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inputfeld Eingaben</title>
+    <script>
+
+        function greetFromTextField() {
+            let name = document.getElementById("namefield").value;
+            greet(name);
+        }
+        function greet(x) {
+            document.getElementById("greet").innerHTML = `Das ist ein Gruß von: ${x}`;
+        }
+
+
+        function getInput() {
+            let animal = document.getElementById("animal").value;
+            document.getElementById(
+                "myText"
+            ).innerHTML = `Mein Lieblingstier ist: ${animal}`;
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Text aus Inputfeld einfügen</h1>
+
+    <input id="namefield" /><button onclick="greetFromTextField()">
+        Grüße
+    </button>
+
+    <p id="greet">Hier steht ein Gruß!</p>
+
+
+    <hr>
+    <!-- onchange Event im Inputfeld -->
+    <input id="animal" onchange="getInput()" placeholder="Lieblingstier" />
+    <div id="myText">Mein Lieblingstier ist: Bär</div>
+</body>
+
+</html>

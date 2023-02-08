@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funktionsparameter</title>
+    <style>
+        body {
+            padding: 100px 200px;
+        }
+
+        table {
+            border: 1px solid lightgray;
+            border-collapse: collapse;
+        }
+
+        table td,
+        th {
+            min-width: 100px;
+            text-align: start;
+            padding: 4px;
+        }
+    </style>
+    <style>
+        p {
+            margin-top: 80px;
+        }
+    </style>
+
+    <script>
+
+        /**
+         * Aufgabe 5
+         */
+        function pythagoras(a, b, container) {
+            let aabb = a * a + b * b; // Caclulates a² + b²
+            let result = Math.sqrt(aabb); // Calculates the root (dt: Wurzel) of the variable aabb
+            document.getElementById(container).innerHTML = result;
+        }
+
+
+        function exercise3() {
+            let jump = 2
+            let list3 = document.getElementById('list3')
+            for (let i = 0; i < 11; i += jump) {
+                list3.innerHTML += `<li>${i}</li>`;
+            }
+        }
+
+        function exercise4() {
+            let numbers = [0, 2, 4, 5, 6, 8, 10]
+            let list3 = document.getElementById('list3')
+            for (let i = 0; i < numbers.length; i++) {
+                list3.innerHTML += `<li>${numbers[i]}</li>`;
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+    <p>Füge <code>&lt;li&gt;</code>-Elemente mit den Zahlen 0, 2, 4, 6, 8, 10 ein. Nutze eine For-Schleife dafür.</p>
+    <ul id="list3">
+        <button onclick="exercise4()">Liste erstellen</button>
+    </ul>
+
+    <hr>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>a² + b²</th>
+            <th>c²</th>
+            <th>Berechnen</th>
+        </tr>
+        <tr>
+            <td>1.</td>
+            <td>1² + 1²</td>
+            <td id="result1"></td>
+            <td><button onclick="pythagoras(1, 1, 'result1')">Berechnen</button></td>
+        </tr>
+
+        <tr>
+            <td>2.</td>
+            <td>2² + 5²</td>
+            <td id="result2"></td>
+            <td><button onclick="pythagoras(2, 5, 'result2')">Berechnen</button></td>
+        </tr>
+
+
+        <tr>
+            <td>3.</td>
+            <td>3² + 2²</td>
+            <td id="result3"></td>
+            <td><button onclick="pythagoras(3, 2, 'result3')">Berechnen</button></td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo Liste mit For - Schleife und Array</title>
+    <script>
+
+        let todos = ['Einkaufen', 'Putzen', 'Kochen', 'Waschen']
+
+        function ShowToDo() {
+            document.getElementById('mytodolist').innerHTML = '';
+            for (let i = 0; i < todos.length; i++) {
+                document.getElementById('mytodolist').innerHTML +=
+
+                    `<li>${todos[i]} 
+    <a href="#" onclick ="delToDo(${i})">X</a>
+    </li>`
+
+            }
+        }
+        // Element hinzufügen
+        function addToDo() {
+            let todo = document.getElementById('myinput').value;
+            todos.push(todo);
+            ShowToDo();
+            document.getElementById('myinput').value = "";
+        }
+        // Elemente Löschen
+        function delToDo(position) {
+            todos.splice(position, 1)
+            // Array neu aufrufen damit die Liste sich aktualisiert.
+            ShowToDo();
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="ShowToDo()">Show Todo´s</button>
+    <input id="myinput" type="text">
+    <button onclick="addToDo()">Weitere Hinzufügen</button>
+    <ul id="mytodolist">
+
+    </ul>
+
+</body>
+
+</html>

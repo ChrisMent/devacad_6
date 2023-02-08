@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <script>
+
+        function image2() {
+            document.getElementById("image").src = "img/bild2.jpg"
+            setTimeout(image2, 3000);
+        }
+
+        function image1() {
+            document.getElementById("image").src = "img/bild1.jpg"
+            setTimeout(image3, 3000);
+        }
+
+        function image3() {
+            document.getElementById("image").src = "img/bild3.jpg"
+            setTimeout(image1, 3000);
+        }
+
+        let images = [
+            'bild1.jpg',
+            'bild2.jpg',
+            'bild3.jpg'
+
+        ]
+
+        let currentImage = 0
+        // Slidershow
+        function start() {
+            let milliseconds = +document.getElementById('seconds').value * 1000
+            if (milliseconds > 10000) {
+                alert('Bitte kleiner Zahl eingeben!')
+            } else {
+
+                if (milliseconds < 1000) {
+                    alert('Bitte mindestens eine Sekunde als Zeit angeben!')
+                } else {
+                    showImage(currentImage)
+                    currentImage++
+                    if (currentImage == 3) {
+                        currentImage = 0;
+
+                    }
+
+
+                    setTimeout(start, milliseconds)
+                }
+            }
+        }
+
+        function showImage(i) {
+            document.getElementById('image').src = images[i]
+
+        }
+
+    </script>
+
+    <style>
+        img {
+            width: 50%;
+            height: 600px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="seconds" type="number" placeholder="Wie Sekunden?">
+    <button onclick="start()">Start Interval</button>
+    <h1 id="headline"></h1>
+
+    <button onclick="image1()">Bild 1</button>
+    <button onclick="image2()">Bild 2</button>
+    <button onclick="image3()">Bild 3</button>
+
+
+    <hr>
+    <img id="image" src="img/bild1.jpg" alt="">
+</body>
+
+</html>
